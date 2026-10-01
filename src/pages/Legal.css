@@ -1,0 +1,77 @@
+/* ── Legal Pages (Terms, Privacy, Disclaimer) ── */
+.legal__content {
+  animation: lp-fadeInUp 0.7s ease;
+}
+
+.legal__updated {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: var(--lp-rust-glow);
+  color: var(--lp-rust);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: 100px;
+  margin-bottom: 2.5rem;
+}
+
+.legal__block {
+  margin-bottom: 2.5rem;
+}
+
+.legal__heading {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--lp-forest);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--lp-gray-100);
+}
+
+.legal__block p {
+  font-size: var(--text-base);
+  color: var(--lp-gray-600);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.legal__list {
+  margin: 0.75rem 0;
+  padding-left: 0;
+}
+
+.legal__list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: var(--text-sm);
+  color: var(--lp-gray-600);
+  line-height: 1.8;
+  margin-bottom: 0.35rem;
+}
+
+.legal__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lp-rust);
+}
+
+.legal__disclaimer-note {
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--lp-cream);
+  border-left: 3px solid var(--lp-gray-300);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.legal__disclaimer-note p {
+  font-size: var(--text-sm);
+  color: var(--lp-gray-500);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.7;
+}

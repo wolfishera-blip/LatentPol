@@ -1,0 +1,71 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo__mark {
+  display: flex;
+  align-items: center;
+}
+
+.logo__svg {
+  height: 32px;
+  width: auto;
+  color: var(--lp-forest);
+  transition: color var(--transition-base);
+}
+
+.logo--light .logo__svg {
+  color: var(--lp-cream);
+}
+
+.logo--compact .logo__svg {
+  height: 26px;
+}
+
+.logo__compass {
+  opacity: 0.7;
+}
+
+.logo__compass-north {
+  opacity: 0.9;
+}
+
+.logo__text-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo__name {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.18em;
+  color: var(--lp-forest);
+  transition: color var(--transition-base);
+}
+
+.logo--light .logo__name {
+  color: var(--lp-cream);
+}
+
+.logo--compact .logo__name {
+  font-size: 1rem;
+}
+
+.logo__tagline {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--lp-gray-400);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.logo--light .logo__tagline {
+  color: var(--lp-gray-300);
+}

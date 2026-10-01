@@ -1,0 +1,343 @@
+/* ============================================
+   LATENTPOL — Global Design System
+   Premium Political Research Consultancy
+   ============================================ */
+
+/* ── CSS Custom Properties ── */
+:root {
+  /* Brand Colors */
+  --lp-forest: #1a2a1f;
+  --lp-forest-light: #243328;
+  --lp-forest-medium: #2d4035;
+  --lp-charcoal: #1c1c1c;
+  --lp-charcoal-light: #2a2a2a;
+  --lp-cream: #f5f0e8;
+  --lp-cream-dark: #e8e0d4;
+  --lp-ivory: #faf8f4;
+  --lp-rust: #c4653a;
+  --lp-rust-light: #d4774d;
+  --lp-rust-dark: #a8522d;
+  --lp-rust-glow: rgba(196, 101, 58, 0.15);
+
+  /* Neutral Palette */
+  --lp-gray-50: #fafaf9;
+  --lp-gray-100: #f0ede8;
+  --lp-gray-200: #ddd8cf;
+  --lp-gray-300: #b8b0a4;
+  --lp-gray-400: #8c8476;
+  --lp-gray-500: #6b6358;
+  --lp-gray-600: #4a443c;
+  --lp-gray-700: #36322c;
+  --lp-gray-800: #252320;
+  --lp-gray-900: #1a1917;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-hindi: 'Noto Sans Devanagari', 'Inter', sans-serif;
+
+  /* Font Sizes (fluid) */
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  --text-lg: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-xl: clamp(1.15rem, 1rem + 0.75vw, 1.25rem);
+  --text-2xl: clamp(1.35rem, 1.1rem + 1.25vw, 1.5rem);
+  --text-3xl: clamp(1.6rem, 1.2rem + 2vw, 1.875rem);
+  --text-4xl: clamp(1.9rem, 1.3rem + 3vw, 2.25rem);
+  --text-5xl: clamp(2.2rem, 1.5rem + 3.5vw, 3rem);
+  --text-6xl: clamp(2.6rem, 1.5rem + 5.5vw, 3.75rem);
+  --text-7xl: clamp(3rem, 1.5rem + 7.5vw, 4.5rem);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+  --space-section: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* Layout */
+  --max-width: 1280px;
+  --max-width-narrow: 960px;
+  --max-width-wide: 1440px;
+  --header-height: 80px;
+  --header-height-compact: 64px;
+
+  /* Borders & Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-index */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 500;
+  --z-overlay: 900;
+  --z-modal: 1000;
+  --z-whatsapp: 1100;
+}
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--lp-charcoal);
+  background-color: var(--lp-ivory);
+  overflow-x: hidden;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: var(--z-base);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--lp-forest);
+}
+
+/* Hindi text utility */
+.hindi-text {
+  font-family: var(--font-hindi);
+}
+
+/* ── Layout Utilities ── */
+.lp-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 2vw, 2rem);
+}
+
+.lp-container-narrow {
+  max-width: var(--max-width-narrow);
+}
+
+.lp-container-wide {
+  max-width: var(--max-width-wide);
+}
+
+.lp-section {
+  padding: var(--space-section) 0;
+}
+
+/* ── Animation Keyframes ── */
+@keyframes lp-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lp-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lp-fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lp-slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lp-slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lp-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes lp-lineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes lp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ── Intersection Observer Animation Classes ── */
+.lp-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lp-animate.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-animate-delay-1 { transition-delay: 0.1s; }
+.lp-animate-delay-2 { transition-delay: 0.2s; }
+.lp-animate-delay-3 { transition-delay: 0.3s; }
+.lp-animate-delay-4 { transition-delay: 0.4s; }
+.lp-animate-delay-5 { transition-delay: 0.5s; }
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--lp-rust);
+  color: var(--lp-cream);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lp-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lp-gray-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lp-gray-400);
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--lp-rust);
+  outline-offset: 2px;
+}
+
+/* ── Skip to content ── */
+.lp-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--lp-forest);
+  color: var(--lp-cream);
+  padding: var(--space-sm) var(--space-md);
+  z-index: calc(var(--z-modal) + 1);
+  font-size: var(--text-sm);
+}
+
+.lp-skip-link:focus {
+  top: 0;
+}
+
+/* ── Responsive Media Queries Tokens ── */
+/* 
+  Mobile:  < 640px
+  Tablet:  640px - 1023px
+  Desktop: 1024px - 1439px
+  Wide:    >= 1440px
+*/

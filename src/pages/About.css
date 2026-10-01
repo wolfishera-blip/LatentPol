@@ -1,0 +1,192 @@
+/* ── About Page ── */
+.about-content__inner {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.about-content__inner.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-content__lead {
+  font-size: var(--text-xl);
+  color: var(--lp-gray-700);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+.about-content__quote {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--lp-forest);
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--lp-rust);
+  background: rgba(196, 101, 58, 0.04);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.about-content__text {
+  font-size: var(--text-base);
+  color: var(--lp-gray-600);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Process */
+.about-process {
+  background: var(--lp-cream);
+}
+
+.about-process__heading {
+  text-align: center;
+  font-size: var(--text-3xl);
+  color: var(--lp-forest);
+  margin-bottom: 3rem;
+}
+
+.about-process__flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.about-process__flow.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-process__step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-process__step-circle {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--lp-forest);
+  color: var(--lp-cream);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.about-process__step-label {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--lp-forest);
+}
+
+.about-process__step-arrow {
+  font-size: 1.25rem;
+  color: var(--lp-rust);
+  transform: rotate(90deg);
+}
+
+/* Ethics */
+.about-ethics__inner {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.about-ethics__inner.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-ethics__title {
+  font-size: var(--text-3xl);
+  color: var(--lp-forest);
+  margin-bottom: 0.25rem;
+}
+
+.about-ethics__subtitle {
+  font-size: var(--text-lg);
+  color: var(--lp-gray-400);
+  margin-bottom: 2rem;
+}
+
+.about-ethics__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.about-ethics__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--lp-cream);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--lp-gray-700);
+}
+
+.about-ethics__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lp-rust);
+  flex-shrink: 0;
+}
+
+/* CTA */
+.about-cta__inner {
+  text-align: center;
+  padding: var(--space-3xl);
+  background: var(--lp-forest);
+  border-radius: var(--radius-xl);
+}
+
+.about-cta__title {
+  font-size: var(--text-3xl);
+  color: var(--lp-cream);
+  margin-bottom: 1.5rem;
+}
+
+.about-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: var(--lp-rust);
+  color: var(--lp-cream);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all var(--transition-base);
+}
+
+.about-cta__btn:hover {
+  background: var(--lp-rust-light);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 640px) {
+  .about-ethics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-process__flow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-process__step-arrow {
+    transform: none;
+  }
+}

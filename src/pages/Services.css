@@ -1,0 +1,124 @@
+.services-overview__list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.service-block {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.service-block.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-block:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.service-block__content {
+  padding: 2.5rem;
+}
+
+.service-block__icon-wrap {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--lp-rust-glow);
+  color: var(--lp-rust);
+  margin-bottom: 1.25rem;
+}
+
+.service-block__num {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  color: var(--lp-gray-300);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.service-block__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--lp-forest);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.service-block__hindi {
+  font-size: var(--text-base);
+  color: var(--lp-gray-400);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.service-block__desc {
+  font-size: var(--text-base);
+  color: var(--lp-gray-600);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.service-block__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-block__item {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: var(--text-sm);
+  color: var(--lp-gray-600);
+}
+
+.service-block__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lp-rust);
+}
+
+.service-block__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--lp-rust);
+  transition: gap var(--transition-fast);
+}
+
+.service-block__link:hover {
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .service-block__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-block__content {
+    padding: 3rem;
+  }
+
+  .service-block__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

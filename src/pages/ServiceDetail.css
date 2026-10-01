@@ -1,0 +1,110 @@
+/* ── Service Detail ── */
+.sd__content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.sd__content.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sd__section {
+  margin-bottom: 2.5rem;
+}
+
+.sd__section-heading {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--lp-forest);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--lp-gray-100);
+}
+
+.sd__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.sd__list-item {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: var(--text-base);
+  color: var(--lp-gray-600);
+  line-height: 1.7;
+}
+
+.sd__list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lp-rust);
+}
+
+.sd__note {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(196, 101, 58, 0.05);
+  border-left: 3px solid var(--lp-rust);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--text-sm);
+  color: var(--lp-gray-600);
+  font-style: italic;
+}
+
+.sd__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--lp-gray-100);
+}
+
+.sd__nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--lp-gray-500);
+  transition: color var(--transition-fast);
+}
+
+.sd__nav-back:hover {
+  color: var(--lp-forest);
+}
+
+.sd__nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  background: var(--lp-rust);
+  color: var(--lp-cream);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: all var(--transition-base);
+}
+
+.sd__nav-cta:hover {
+  background: var(--lp-rust-light);
+  transform: translateY(-1px);
+}
+
+@media (min-width: 640px) {
+  .sd__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
