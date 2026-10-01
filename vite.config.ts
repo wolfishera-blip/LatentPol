@@ -6,10 +6,9 @@ import { defineConfig, type Plugin } from 'vite'
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
 
-// Site is served from https://wolfishera-blip.github.io/LatentPol/, so every
-// emitted asset URL needs the "/LatentPol/" prefix. Without this the bundle is
-// requested from the domain root and 404s.
-const BASE = '/LatentPol/'
+// Automatically set base to '/LatentPol/' on GitHub Actions, and '/' for Cloudflare/local
+const BASE = process.env.VITE_BASE_PATH || (process.env.GITHUB_ACTIONS ? '/LatentPol/' : '/')
+
 
 /**
  * GitHub Pages serves static files only - there are no server-side rewrites, so
